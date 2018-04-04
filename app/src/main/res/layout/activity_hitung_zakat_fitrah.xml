@@ -4,92 +4,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context="com.izzatul.bismillahta.KalkulatorActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/zakat_fitrah"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="20sp" />
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+    </android.support.v7.widget.Toolbar>
 
-    <!--COMPLETED buat edit text, sesuaikan dengan field yang ada pada jurnal TA.
-    TODO pastikan pada expert -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Harga Beras (kg)"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="18sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <EditText
-            android:id="@+id/etHargaBeras"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_weight="2"
-            android:hint="Harga Beras per Liter (Rp)"
-            android:inputType="number"
-            android:textColorLink="@color/colorLink"
+            android:layout_marginBottom="10dp"
+            android:text="@string/zakat_fitrah"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="20sp" />
+
+        <!-- COMPLETED buat edit text, sesuaikan dengan field yang ada pada jurnal TA.
+        COMPLETED pastikan pada expert -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etHargaBeras"
+                    android:hint="Harga Beras per Liter (Rp)"
+                    android:inputType="number"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!--<EditText-->
+            <!--android:id="@+id/etHargaBeras"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:layout_weight="2"-->
+            <!--android:hint="Harga Beras per Liter (Rp)"-->
+            <!--android:inputType="number"-->
+            <!--android:textColorLink="@color/colorAccent"-->
+            <!--android:textSize="18sp" />-->
+
+            <ImageButton
+                android:id="@+id/btnResetBeras"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="1"
+                android:src="@android:drawable/btn_dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etJumlahOrang"
+                    android:hint="Jumlah Anggota Keluarga"
+                    android:inputType="number"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!--<EditText-->
+            <!--android:id="@+id/etJumlahOrang"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:layout_weight="2"-->
+            <!--android:hint="Jumlah Orang"-->
+            <!--android:inputType="number"-->
+            <!--android:textColorLink="@color/colorAccent"-->
+            <!--android:textSize="18sp" />-->
+
+            <ImageButton
+                android:id="@+id/btnResetJumlahOrang"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="1"
+                android:src="@android:drawable/btn_dialog" />
+
+        </LinearLayout>
+
+        <!-- Hasil perhitungan -->
+        <TextView
+            android:id="@+id/tvHasil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:hint="Hasil perhitungan"
+            android:paddingBottom="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
-        <ImageButton
-            android:id="@+id/btnResetBeras"
-            android:layout_width="42dp"
+        <!-- Button perhitungan dan reset all -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="1"
-            android:src="@android:drawable/btn_dialog" />
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/btnHitung"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="@string/hitung"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvHasil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
+            <TextView
+                android:id="@+id/btnUlangi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:text="@string/ulang"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <TextView
-            android:id="@+id/btnHitung"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:text="@string/hitung"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@android:color/background_light"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/btnUlangi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/background_light"
-            android:gravity="center"
-            android:text="@string/ulang"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

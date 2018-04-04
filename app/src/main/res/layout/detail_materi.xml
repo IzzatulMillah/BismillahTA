@@ -4,49 +4,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.izzatul.bismillahta.MateriActivity"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_judul_materi"
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Zakat Fitrah"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:layout_marginTop="10dp"/>
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+    </android.support.v7.widget.Toolbar>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="fill_horizontal"
-        android:layout_marginBottom="10dp">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_judul_materi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:hint="Zakat Fitrah"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="#000" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginBottom="10dp">
 
-            <TextView
-                android:id="@+id/deskripsi_materi"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="Deskripsi materi"
-                android:textSize="15sp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/darker_gray" />
+                <!-- Deskripsi Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_deskripsi_materi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Zakat Fitrah ialah zakat diri yang diwajibkan atas diri setiap individu lelaki dan perempuan muslim yang berkemampuan dengan syarat-syarat yang ditetapkan. Kata Fitrah yang ada merujuk pada keadaan manusia saat baru diciptakan sehingga dengan mengeluarkan zakat ini manusia dengan izin Allah akan kembali fitrah."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
 
-    </ScrollView>
+                <!-- Penjelasan Nishab Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_nishab_zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat Fitrah adalah ..."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!-- Waktu Pelaksanaa Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_waktu_zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat Fitrah adalah ..."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!-- Besar Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_besar_zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat Fitrah adalah ..."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </LinearLayout>

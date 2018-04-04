@@ -2,6 +2,8 @@ package com.izzatul.bismillahta;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -10,8 +12,8 @@ import android.widget.Toast;
 
 public class HitungZakatFitrahActivity extends AppCompatActivity implements View.OnClickListener{
 
-    EditText editHargaBeras;
-    ImageButton btResetHrgBeras;
+    EditText editHargaBeras, editJumlahOrang;
+    ImageButton btResetHrgBeras, btResetJumlahOrang;
     TextView bHitung, bUlang, textHasil;
 
     @Override
@@ -19,13 +21,21 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitung_zakat_fitrah);
 
-        editHargaBeras = (EditText) findViewById(R.id.etHargaBeras);
-        btResetHrgBeras = (ImageButton) findViewById(R.id.btnResetBeras);
-        bHitung = (TextView) findViewById(R.id.btnHitung);
-        bUlang = (TextView) findViewById(R.id.btnUlangi);
-        textHasil = (TextView) findViewById(R.id.tvHasil);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+
+        editHargaBeras = findViewById(R.id.etHargaBeras);
+        editJumlahOrang = findViewById(R.id.etJumlahOrang);
+        btResetHrgBeras = findViewById(R.id.btnResetBeras);
+        btResetJumlahOrang = findViewById(R.id.btnResetJumlahOrang);
+        bHitung = findViewById(R.id.btnHitung);
+        bUlang = findViewById(R.id.btnUlangi);
+        textHasil = findViewById(R.id.tvHasil);
 
         btResetHrgBeras.setOnClickListener(this);
+        btResetJumlahOrang.setOnClickListener(this);
         bHitung.setOnClickListener(this);
         bUlang.setOnClickListener(this);
     }
@@ -36,22 +46,42 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
             case R.id.btnResetBeras :
                 editHargaBeras.setText("");
                 break;
+            case R.id.btnResetJumlahOrang :
+                editJumlahOrang.setText("");
+                break;
             case R.id.btnHitung :
-                // TODO cari tahu format titik untuk hasil perhitungan dan inputan edittext
-                if (editHargaBeras.getText().toString().equals("")){
-                    Toast.makeText(this, "Isi harga beras terlebih dahulu", Toast.LENGTH_SHORT).show();
+                // TODO cari tahu format titik untuk inputan edittext. cek textwatcher. but yet still confusing
+                if (editHargaBeras.getText().toString().equals("") || editJumlahOrang.getText().toString().equals("")){
+                    Toast.makeText(this, "Isi kolom terlebih dahulu", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     final float KADAR_ZAKAT_FITRAH = (float) 3.5;
                     Float hargaBeras = Float.parseFloat(editHargaBeras.getText().toString());
-                    float hasilHitung = KADAR_ZAKAT_FITRAH * hargaBeras;
-                    textHasil.setText("Jumlah yang dizakatkan adalah 3,5 liter beras atau uang sejumlah "+ hasilHitung);
+                    int jumlahOrang = Integer.parseInt(editJumlahOrang.getText().toString());
+                    float hasilLiter = KADAR_ZAKAT_FITRAH * jumlahOrang;
+                    float hasilRupiah = hasilLiter * hargaBeras;
+                    textHasil.setText("Zakat yang dibayarkan dapat berupa " + hasilLiter + " liter makanan pokok, atau dapat berupa uang sejumlah Rp. " + hasilRupiah);
                 }
                 break;
             case R.id.btnUlangi :
                 editHargaBeras.setText("");
+                editJumlahOrang.setText("");
                 textHasil.setText("");
                 break;
         }
+    }
+
+    // tombol click back ke home atau activity sebelumnya
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int idItem = item.getItemId();
+        switch (idItem) {
+            case android.R.id.home :
+                finish();
+                break;
+            default:
+                Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }

@@ -33,7 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnMateri:
-                Intent materi = new Intent(MainActivity.this, MateriActivity.class);
+                Intent materi = new Intent(MainActivity.this, KategoriActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("menu", 1);
+                materi.putExtras(bundle);
                 startActivity(materi);
                 break;
             case R.id.btnSoalLatihan:
@@ -41,7 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(latihan);
                 break;
             case R.id.btnKalkulator:
-                Intent kalkulator = new Intent(MainActivity.this, KalkulatorActivity.class);
+                Intent kalkulator = new Intent(MainActivity.this, KategoriActivity.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("menu", 3);
+                kalkulator.putExtras(bundle2);
                 startActivity(kalkulator);
                 break;
             case R.id.btnTentangAplikasi:

@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -16,11 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MateriActivity"></activity>
+        <activity android:name=".MateriActivity" />
         <activity android:name=".LatihanActivity" />
         <activity android:name=".KalkulatorActivity" />
         <activity android:name=".HitungZakatFitrahActivity" />
-        <activity android:name=".HitungZakatMaalActivity"></activity>
+        <activity android:name=".HitungZakatMaalActivity" />
+        <activity android:name=".KategoriActivity" />
+        <activity android:name=".HitungZakatEmasActivity" />
+        <activity android:name=".HitungZakatPerakActivity" />
+        <activity android:name=".HitungZakatPerdaganganActivity" />
+        <activity android:name=".HitungZakatPertanianActivity" />
+        <activity android:name=".HitungZakatHewanTernakActivity"></activity>
     </application>
 
 </manifest>

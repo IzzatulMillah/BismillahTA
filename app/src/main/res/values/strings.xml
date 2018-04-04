@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bismillah TA - Zakat Kita</string>
+    <string name="app_name">Zakat Kita (Android)</string>
     <string name="materi">Materi Zakat</string>
     <string name="latihan">Soal Latihan</string>
     <string name="kalkulator">Kalkulator Zakat</string>
@@ -8,4 +8,11 @@
     <string name="zakat_maal">Zakat Maal</string>
     <string name="ulang">ULANG</string>
     <string name="hitung">HITUNG</string>
+    <string name="zakat_pertanian">Zakat Pertanian</string>
+    <string name="zakat_perdagangan">Zakat Perdagangan</string>
+    <string name="fitrah">Zakat Firah</string>
+    <string name="zakatemas">Zakat Emas</string>
+    <string name="zakatperak">Zakat Perak</string>
+    <string name="zakatdagang">Zakat Perdagangan</string>
+    <string name="zakatpertanian">Zakat Pertanian</string>
 </resources>

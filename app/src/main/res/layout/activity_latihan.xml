@@ -3,50 +3,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical"
     tools:context="com.izzatul.bismillahta.LatihanActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Soal 1/10"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
-
-    <TextView
-        android:id="@+id/textView2"
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Deskripsi Soal"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+    </android.support.v7.widget.Toolbar>
 
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin">
 
-        <RadioButton
-            android:id="@+id/radioButton5"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="RadioButton" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="RadioButton" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soal ke "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvUrutanSoal"
+                android:text="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" dari "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvJumlahSoal"
+                android:text="10"/>
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="RadioButton" />
+        </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/radioButton2"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="RadioButton" />
-    </RadioGroup>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"
+            android:id="@+id/tvSoal"
+            android:text="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/jawaban1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="45 kg beras" />
+
+            <RadioButton
+                android:id="@+id/jawaban2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3,5 kg beras" />
+
+            <RadioButton
+                android:id="@+id/jawaban3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="12 kg beras" />
+
+            <RadioButton
+                android:id="@+id/jawaban4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="27 kg beras" />
+
+            <RadioButton
+                android:id="@+id/jawaban5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="31,5 kg beras" />
+        </RadioGroup>
+
+
+    </LinearLayout>
 
 </LinearLayout>
