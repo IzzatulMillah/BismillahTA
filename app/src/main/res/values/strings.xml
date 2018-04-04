@@ -15,4 +15,9 @@
     <string name="zakatperak">Zakat Perak</string>
     <string name="zakatdagang">Zakat Perdagangan</string>
     <string name="zakatpertanian">Zakat Pertanian</string>
+    <string name="contoh_perhitungan_zakat">Contoh Perhitungan Zakat</string>
+    <string name="besar_zakat">Besar Zakat</string>
+    <string name="waktu_pelaksanaan_zakat">Waktu Pelaksanaan</string>
+    <string name="nishab_zakat">Nishab Zakat</string>
+    <string name="deskripsi">Deskripsi</string>
 </resources>
