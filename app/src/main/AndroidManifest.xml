@@ -20,7 +20,6 @@
         <activity android:name=".LatihanActivity" />
         <activity android:name=".KalkulatorActivity" />
         <activity android:name=".HitungZakatFitrahActivity" />
-        <activity android:name=".HitungZakatMaalActivity" />
         <activity android:name=".KategoriActivity" />
         <activity android:name=".HitungZakatEmasActivity" />
         <activity android:name=".HitungZakatPerakActivity" />
