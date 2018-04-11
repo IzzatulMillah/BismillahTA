@@ -24,7 +24,6 @@ public class HitungZakatHewanTernakActivity extends AppCompatActivity implements
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
-
     }
 
     @Override

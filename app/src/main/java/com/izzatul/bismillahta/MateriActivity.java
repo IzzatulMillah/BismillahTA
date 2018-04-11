@@ -9,6 +9,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 public class MateriActivity extends AppCompatActivity {
 
     private TextView tvJudulMateri, tvDeskripsi;
@@ -26,6 +33,28 @@ public class MateriActivity extends AppCompatActivity {
 
         tvJudulMateri = findViewById(R.id.tv_judul_materi);
         tvDeskripsi = findViewById(R.id.tv_deskripsi_materi);
+
+        // inisialisasi RequestQueue
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://localhost/basic/web/services/get-data";
+
+        // mencari respon dari alamat yang tertera
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(MateriActivity.this, "Response is : "+response, Toast.LENGTH_SHORT).show();
+                        // Display the first 500 characters of the response string.
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MateriActivity.this, "It didn't work!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
 
         bundleMateri = getIntent().getExtras().getInt("kategori");
         if (bundleMateri == 1){
@@ -47,6 +76,7 @@ public class MateriActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int idItem = item.getItemId();
+
         switch (idItem) {
             case android.R.id.home :
                 finish();
