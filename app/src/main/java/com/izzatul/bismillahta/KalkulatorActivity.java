@@ -13,9 +13,10 @@ public class KalkulatorActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kalkulator);
-        // COMPLETED buat pilihan apakah zakat fitrah atau maal. pakai switch atau if-else
-        tZakatFitrah = (TextView) findViewById(R.id.tvZakatFitrah);
-        tZakatMaal = (TextView) findViewById(R.id.tvZakatMaal);
+
+        tZakatFitrah = findViewById(R.id.tvZakatFitrah);
+        tZakatMaal = findViewById(R.id.tvZakatMaal);
+
         tZakatFitrah.setOnClickListener(this);
         tZakatMaal.setOnClickListener(this);
     }
@@ -28,7 +29,7 @@ public class KalkulatorActivity extends AppCompatActivity implements View.OnClic
                 startActivity(hitungZakatFitrah);
                 break;
             case R.id.tvZakatMaal:
-                Intent hitungZakatMaal = new Intent(KalkulatorActivity.this, HitungZakatMaalActivity.class);
+                Intent hitungZakatMaal = new Intent(KalkulatorActivity.this, HitungZakatEmasActivity.class);
                 startActivity(hitungZakatMaal);
                 break;
         }

@@ -1,12 +1,10 @@
 package com.izzatul.bismillahta;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,46 +16,26 @@ import com.android.volley.toolbox.Volley;
 
 public class MateriActivity extends AppCompatActivity {
 
-    private TextView tvJudulMateri, tvDeskripsi;
     private int bundleMateri;
+
+    private static final String TAG = MainActivity.class.getName();
+    private RequestQueue mRequestQueue;
+    private StringRequest mStringRequest;
+    private String url = "http://192.168.43.20/basic/web/services/get-data";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_materi);
+//        setContentView(R.layout.detail_materi);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.materi);
+        //getSupportActionBar().setTitle(R.string.materi);
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
-
-        tvJudulMateri = findViewById(R.id.tv_judul_materi);
-        tvDeskripsi = findViewById(R.id.tv_deskripsi_materi);
-
-        // inisialisasi RequestQueue
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://localhost/basic/web/services/get-data";
-
-        // mencari respon dari alamat yang tertera
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(MateriActivity.this, "Response is : "+response, Toast.LENGTH_SHORT).show();
-                        // Display the first 500 characters of the response string.
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MateriActivity.this, "It didn't work!!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
 
         bundleMateri = getIntent().getExtras().getInt("kategori");
         if (bundleMateri == 1){
+//            sendAndRequestResponse();
             Toast.makeText(this, "Zakat Fitrah", Toast.LENGTH_SHORT).show();
         } else if (bundleMateri == 2){
             Toast.makeText(this, "Zakat Emas", Toast.LENGTH_SHORT).show();
@@ -85,6 +63,26 @@ public class MateriActivity extends AppCompatActivity {
                 Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
         }
         return true;
+    }
+
+    private void sendAndRequestResponse() {
+        //RequestQueue initialized
+        mRequestQueue = Volley.newRequestQueue(this);
+
+        //String Request initialized
+        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "Respon : "+response.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i(TAG,"Error :" + error.toString());
+            }
+        });
+
+        mRequestQueue.add(mStringRequest);
     }
 
 }
