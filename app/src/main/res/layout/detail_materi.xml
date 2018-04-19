@@ -57,7 +57,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="Zakat Fitrah ialah zakat diri yang diwajibkan atas diri setiap individu lelaki dan perempuan muslim yang berkemampuan dengan syarat-syarat yang ditetapkan. Kata Fitrah yang ada merujuk pada keadaan manusia saat baru diciptakan sehingga dengan mengeluarkan zakat ini manusia dengan izin Allah akan kembali fitrah."
                     android:textAlignment="viewStart"
                     android:textColor="#000"
                     android:textSize="15sp" />
@@ -76,7 +75,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="Nishab Zakat Fitrah adalah 3,5 kg bahan makanan pokok daerah setempat"
                     android:textAlignment="viewStart"
                     android:textColor="#000"
                     android:textSize="15sp" />
@@ -95,7 +93,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="Waktu pelaksanaan zakat fitrah adalah saat bulan Ramadhan"
                     android:textAlignment="viewStart"
                     android:textColor="#000"
                     android:textSize="15sp" />
@@ -114,7 +111,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="Besar zakat yang dibayarkan adalah harga makanan pokok dikalikan dengan jumlah orang"
                     android:textAlignment="viewStart"
                     android:textColor="#000"
                     android:textSize="15sp" />
@@ -133,7 +129,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="Harga beras saat ini adalah Rp. 12.0000 dengan jumlah anggota keluarga 4 orang. Maka zakat yang dibayarkan adalah 14 kg beras atau uang sejumlah Rp. 48.000"
                     android:textAlignment="viewStart"
                     android:textColor="#000"
                     android:textSize="15sp" />
