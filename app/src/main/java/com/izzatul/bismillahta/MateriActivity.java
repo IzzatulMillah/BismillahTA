@@ -1,6 +1,7 @@
 package com.izzatul.bismillahta;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,25 +15,20 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MateriActivity extends AppCompatActivity {
 
     private int bundleMateri;
+    Bundle fitrah, emas, perak, dagang, tani, ternak;
+    Intent intent;
 
     private static final String TAG = MainActivity.class.getName();
-
-    private String url = "http://192.168.43.20/basic/web/services/get-data/1";
+    private String url = "http://192.168.43.20/basic/web/services/get-data/";
 
     private TextView judulMateri, deskripsi, nishabZakat, waktuZakat, besarZakat, contohZakat;
 
@@ -43,7 +39,7 @@ public class MateriActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle(R.string.materi);
+        getSupportActionBar().setTitle(R.string.materi);
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
 
         judulMateri = findViewById(R.id.tv_judul_materi);
@@ -54,20 +50,7 @@ public class MateriActivity extends AppCompatActivity {
         contohZakat = findViewById(R.id.tv_contoh_zakat);
 
         bundleMateri = getIntent().getExtras().getInt("kategori");
-        if (bundleMateri == 1){
-            getData();
-//            Toast.makeText(this, "Zakat Fitrah", Toast.LENGTH_SHORT).show();
-        } else if (bundleMateri == 2){
-            Toast.makeText(this, "Zakat Emas", Toast.LENGTH_SHORT).show();
-        } else if (bundleMateri == 3){
-            Toast.makeText(this, "Zakat Perak", Toast.LENGTH_SHORT).show();
-        } else if (bundleMateri == 5){
-            Toast.makeText(this, "Zakat Perdagangan", Toast.LENGTH_SHORT).show();
-        } else if (bundleMateri == 5){
-            Toast.makeText(this, "Zakat Pertanian", Toast.LENGTH_SHORT).show();
-        } else if (bundleMateri == 6){
-            Toast.makeText(this, "Zakat Hewan Ternak", Toast.LENGTH_SHORT).show();
-        }
+        getData(bundleMateri);
     }
 
     // tombol click back ke home atau activity sebelumnya
@@ -85,13 +68,13 @@ public class MateriActivity extends AppCompatActivity {
         return true;
     }
 
-    private void getData(){
+    private void getData(int idZakat){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, null, new Response.Listener<JSONObject>() {
+                url+idZakat , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -138,26 +121,4 @@ public class MateriActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjReq);
     }
-
-//    private void sendAndRequestResponse() {
-//        //RequestQueue initialized
-//        mRequestQueue = Volley.newRequestQueue(this);
-//
-//        //String Request initialized
-//        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                deskripsi.setText("Respon = "+response.toString());
-//                //Toast.makeText(getApplicationContext(), "Respon : "+response.toString(), Toast.LENGTH_SHORT).show();
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.i(TAG,"Error :" + error.toString());
-//            }
-//        });
-//
-//        mRequestQueue.add(mStringRequest);
-//    }
-
 }

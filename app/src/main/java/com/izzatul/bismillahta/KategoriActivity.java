@@ -6,8 +6,20 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +29,10 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
     private RecyclerView rv;
     private List<Zakat> zakatList;
     private int bundle;
+    private TextView namaZakat;
+
+    private static final String TAG = MainActivity.class.getName();
+    private String url = "http://192.168.43.20/basic/web/services/get-data/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +42,9 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        rv = findViewById(R.id.rv);
+        namaZakat = findViewById(R.id.nama_zakat);
+
         bundle = getIntent().getExtras().getInt("menu");
         if (bundle == 1) {
             getSupportActionBar().setTitle(R.string.materi);
@@ -34,8 +53,6 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         }
 
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
-
-        rv = findViewById(R.id.rv);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -59,6 +76,43 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         ZakatAdapter adapter = new ZakatAdapter(this, zakatList);
         rv.setAdapter(adapter);
     }
+
+//    private void getDataJudul(){
+//        final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+//                url , null, new Response.Listener<JSONObject>() {
+//
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                Log.d(TAG, response.toString());
+//
+//                try {
+//                    // Parsing json object response
+//                    // response will be a json object
+//                    JSONObject data = response.getJSONObject(String.valueOf(response));
+//                    JSONArray jArray = data.getJSONArray(data);
+//                    if (jArray != null) {
+//                        for (int i=0;i<jArray.length();i++){
+//                            zakatList.add(jArray.getString(i));
+//                        }
+//                    }
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    Toast.makeText(getApplicationContext(),
+//                            "Error: " + e.getMessage(),
+//                            Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                VolleyLog.d(TAG, "Error: " + error.getMessage());
+//                Toast.makeText(getApplicationContext(),
+//                        error.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
     @Override
     public void onClickCardView(int position) {
@@ -94,7 +148,7 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         }
         /* Jika value yang dipassing adalah 1, maka akan menuju ke activity materi */
         else {
-            Bundle fitrah, emas, perak, dagang, tani;
+            Bundle fitrah, emas, perak, dagang, tani, ternak;
             switch (position) {
                 case 0 :
                     intent = new Intent(this, MateriActivity.class);
@@ -132,7 +186,11 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     startActivity(intent);
                     break;
                 case 5 :
-                    Toast.makeText(this, "Masih On Going", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(this, MateriActivity.class);
+                    ternak = new Bundle();
+                    ternak.putInt("kategori", 6 );
+                    intent.putExtras(ternak);
+                    startActivity(intent);
                     break;
             }
         }
