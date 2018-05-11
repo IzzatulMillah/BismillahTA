@@ -122,7 +122,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
 
     private void getJawaban(int idSoal){
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                urlJawaban + idSoal, null, new Response.Listener<JSONObject>() {
+                url + idSoal, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -131,6 +131,9 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 try {
                     // Parsing json object response
                     // response will be a json object
+                    /*
+                    * Untuk mengambil data jawaban, menggunakan URL atau end point yag sama dengan mengambil data soal
+                     * sebelumnya sudah bisa mengambil data soal, jawabannya belum*/
                     JSONObject data = response.getJSONObject("data");
                     String jawaban1 = data.getString("jawaban");
                     String jawaban2 = data.getString("jawaban");
