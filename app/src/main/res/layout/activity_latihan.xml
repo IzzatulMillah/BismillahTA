@@ -28,31 +28,34 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Soal ke "/>
+                android:text="Soal ke " />
+
+            <TextView
+                android:id="@+id/tv_urutan_soal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvUrutanSoal"
-                android:text="1"/>
+                android:text=" dari " />
+
             <TextView
+                android:id="@+id/tv_jumlah_soal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" dari "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvJumlahSoal"
-                android:text="10"/>
+                android:text="10" />
 
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_soal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textSize="16dp"
-            android:id="@+id/tvSoal"
-            android:text="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"/>
+            android:text="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"
+            android:textSize="16dp" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -95,6 +98,41 @@
                 android:text="31,5 kg beras" />
         </RadioGroup>
 
+        <!-- Button NEXT dan PREV -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/btn_prev"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:text="PREV"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="NEXT"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 
