@@ -27,13 +27,16 @@ import java.util.Random;
 public class LatihanActivity extends AppCompatActivity implements View.OnClickListener{
     private int idLatihan;
     private int urutanSoal = 0;
+    private int i = 1;
+    private int skor;
 
     private static final String TAG = LatihanActivity.class.getName();
-    private String url = "http://192.168.43.20/basic/web/services/get-latihan/";
+    private String url = "http://192.168.100.29/basic/web/services/get-latihan/";
 //    192.168.43.20
 
     private TextView noUrutSoal, jumlahSoal, textSoal, btnNext, btnPrev;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
+    private String jawabanBenar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +47,17 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
 
         getElements();
 
-        idLatihan = getRandomNumber();
-        urutanSoal = idLatihan;
-        getSoal(idLatihan);
-        getJawaban(idLatihan);
+        getKuis();
 
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
+    }
+
+    public void getKuis(){
+        idLatihan = getRandomNumber();
+        urutanSoal = idLatihan;
+        getSoal(idLatihan);
+//        getJawaban(idLatihan);
     }
 
     void setUpToolbar(){
@@ -115,12 +122,17 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                     String jawab2 = data.getString("jawaban_2");
                     String jawab3 = data.getString("jawaban_3");
                     String jawab4 = data.getString("jawaban_4");
+                    String jawaban_benar = data.getString("jawaban_benar");
 
                     textSoal.setText(soal);
                     jawaban1.setText(jawab1);
                     jawaban2.setText(jawab2);
                     jawaban3.setText(jawab3);
                     jawaban4.setText(jawab4);
+
+                    jawabanBenar = jawaban_benar;
+
+//                    Toast.makeText(LatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),
@@ -145,41 +157,47 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         requestQueue.add(jsonObjReq);
     }
 
-    private void getJawaban(int idSoal){
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url + idSoal, null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    // Parsing json object response
-                    // response will be a json object
-                    JSONObject data = response.getJSONObject("data");
-                    String jawaban_benar = data.getString("jawaban_benar");
-
-                    Toast.makeText(LatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(),
-                            "Error: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();
-                }
+    public void cekJawaban(){
+        if (jawaban1.isChecked()){
+            if (jawaban1.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            else {
+                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
-        });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjReq);
+        }
+        else if (jawaban2.isChecked()){
+            if (jawaban2.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if (jawaban3.isChecked()){
+            if (jawaban3.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if (jawaban4.isChecked()){
+            if (jawaban4.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
@@ -189,7 +207,8 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(this, "TOMBOL PREV CLICKED", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_next :
-                Toast.makeText(this, "TOMBOL NEXT CLICKED", Toast.LENGTH_SHORT).show();
+                cekJawaban();
+//                Toast.makeText(this, "TOMBOL NEXT CLICKED", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
