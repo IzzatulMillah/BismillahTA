@@ -1,17 +1,11 @@
 package com.izzatul.bismillahta;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.NumberFormat;
-import java.util.Locale;
 
 public class HitungZakatHewanTernakActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -20,6 +14,10 @@ public class HitungZakatHewanTernakActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitung_zakat_hewan_ternak);
 
+        setToolbar();
+    }
+
+    public void setToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

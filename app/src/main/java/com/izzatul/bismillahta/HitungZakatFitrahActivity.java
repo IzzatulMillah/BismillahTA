@@ -10,9 +10,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HitungZakatFitrahActivity extends AppCompatActivity implements View.OnClickListener{
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
+public class HitungZakatFitrahActivity extends AppActivity{
+
+    @NotEmpty(message = "Mohon diisi dahulu")
     EditText editHargaBeras, editJumlahOrang;
+
     ImageButton btResetHrgBeras, btResetJumlahOrang;
     TextView bHitung, bUlang, textHasil;
 
@@ -42,32 +46,36 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnResetBeras :
-                editHargaBeras.setText("");
-                break;
-            case R.id.btnResetJumlahOrang :
-                editJumlahOrang.setText("");
-                break;
-            case R.id.btnHitung :
-                // TODO cari tahu format titik untuk inputan edittext. cek textwatcher. but yet still confusing
-                if (editHargaBeras.getText().toString().equals("") || editJumlahOrang.getText().toString().equals("")){
-                    Toast.makeText(this, "Isi kolom terlebih dahulu", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    final float KADAR_ZAKAT_FITRAH = (float) 3.5;
-                    Float hargaBeras = Float.parseFloat(editHargaBeras.getText().toString());
-                    int jumlahOrang = Integer.parseInt(editJumlahOrang.getText().toString());
-                    float hasilLiter = KADAR_ZAKAT_FITRAH * jumlahOrang;
-                    float hasilRupiah = hasilLiter * hargaBeras;
-                    textHasil.setText("Zakat yang dibayarkan dapat berupa " + hasilLiter + " liter makanan pokok, atau dapat berupa uang sejumlah Rp. " + hasilRupiah);
-                }
-                break;
-            case R.id.btnUlangi :
-                editHargaBeras.setText("");
-                editJumlahOrang.setText("");
-                textHasil.setText("");
-                break;
+        super.onClick(view);
+
+        if (validated){
+            switch (view.getId()){
+                case R.id.btnResetBeras :
+                    editHargaBeras.setText("");
+                    break;
+                case R.id.btnResetJumlahOrang :
+                    editJumlahOrang.setText("");
+                    break;
+                case R.id.btnHitung :
+                    // TODO cari tahu format titik untuk inputan edittext. cek textwatcher. but yet still confusing
+                    if (editHargaBeras.getText().toString().equals("") || editJumlahOrang.getText().toString().equals("")){
+                        Toast.makeText(this, "Isi kolom terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        final float KADAR_ZAKAT_FITRAH = (float) 3.5;
+                        Float hargaBeras = Float.parseFloat(editHargaBeras.getText().toString());
+                        int jumlahOrang = Integer.parseInt(editJumlahOrang.getText().toString());
+                        float hasilLiter = KADAR_ZAKAT_FITRAH * jumlahOrang;
+                        float hasilRupiah = hasilLiter * hargaBeras;
+                        textHasil.setText("Zakat yang dibayarkan dapat berupa " + hasilLiter + " liter makanan pokok, atau dapat berupa uang sejumlah Rp. " + hasilRupiah);
+                    }
+                    break;
+                case R.id.btnUlangi :
+                    editHargaBeras.setText("");
+                    editJumlahOrang.setText("");
+                    textHasil.setText("");
+                    break;
+            }
         }
     }
 

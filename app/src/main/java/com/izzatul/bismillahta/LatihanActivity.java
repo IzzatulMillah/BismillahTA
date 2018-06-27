@@ -31,7 +31,8 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
     private int skor;
 
     private static final String TAG = LatihanActivity.class.getName();
-    private String url = "http://192.168.100.29/basic/web/services/get-latihan/";
+//    private String url = "http://millah.cyber1011.com/basic/web/services/get-latihan/";
+    private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
 //    192.168.43.20
 
     private TextView noUrutSoal, jumlahSoal, textSoal, btnNext, btnPrev;
@@ -47,6 +48,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
 
         getElements();
 
+        noUrutSoal.setText(""+skor);
         getKuis();
 
         btnPrev.setOnClickListener(this);
@@ -165,6 +167,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
+                noUrutSoal.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
@@ -175,6 +178,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
+                noUrutSoal.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
@@ -185,6 +189,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
+                noUrutSoal.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
@@ -195,6 +200,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
+                noUrutSoal.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
@@ -208,6 +214,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.btn_next :
                 cekJawaban();
+                getKuis();
 //                Toast.makeText(this, "TOMBOL NEXT CLICKED", Toast.LENGTH_SHORT).show();
                 break;
         }

@@ -20,4 +20,9 @@
     <string name="waktu_pelaksanaan_zakat">Waktu Pelaksanaan</string>
     <string name="nishab_zakat">Nishab Zakat</string>
     <string name="deskripsi">Deskripsi</string>
+    <string name="zakat_hewan_ternak">Zakat Hewan Ternak</string>
+    <string name="jenis_hewan">Jenis Hewan</string>
+    <string name="unta">Unta</string>
+    <string name="sapi_kerbau">Sapi/Kerbau</string>
+    <string name="kambing">Kambing</string>
 </resources>

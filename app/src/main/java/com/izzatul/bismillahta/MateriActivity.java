@@ -28,7 +28,7 @@ public class MateriActivity extends AppCompatActivity {
     Intent intent;
 
     private static final String TAG = MainActivity.class.getName();
-    private String url = "http://192.168.43.20/basic/web/services/get-data/";
+    private String url = "http://millah.cyber1011.com/web/services/get-data/";
 
     private TextView judulMateri, deskripsi, nishabZakat, waktuZakat, besarZakat, contohZakat;
 
