@@ -22,18 +22,17 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class LatihanActivity extends AppCompatActivity implements View.OnClickListener{
     private int idLatihan;
-    private int urutanSoal = 0;
+    private int urutanSoal;
     private int i = 1;
     private int skor;
 
     private static final String TAG = LatihanActivity.class.getName();
-//    private String url = "http://millah.cyber1011.com/basic/web/services/get-latihan/";
     private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
-//    192.168.43.20
 
     private TextView noUrutSoal, jumlahSoal, textSoal, btnNext, btnPrev;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
@@ -48,7 +47,6 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
 
         getElements();
 
-        noUrutSoal.setText(""+skor);
         getKuis();
 
         btnPrev.setOnClickListener(this);
@@ -56,10 +54,15 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void getKuis(){
-        idLatihan = getRandomNumber();
-        urutanSoal = idLatihan;
+        ArrayList<Integer> idSoal = new ArrayList<>();
+        Log.d("ayam","jalan");
+        do{
+            idLatihan = getRandomNumber();
+            Log.d("ayam",String.valueOf(idLatihan));
+        } while (idSoal.contains(idLatihan));
+        idSoal.add(idLatihan);
+
         getSoal(idLatihan);
-//        getJawaban(idLatihan);
     }
 
     void setUpToolbar(){
