@@ -42,11 +42,31 @@
                 android:text=" dari " />
 
             <TextView
-                android:id="@+id/tv_jumlah_soal"
+            android:id="@+id/tv_jumlah_soal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10" />
+                android:text="SKOR : "
+                android:textSize="18sp"/>
 
+            <TextView
+                android:id="@+id/tv_skor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <TextView
@@ -54,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"
+            android:hint="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"
             android:textSize="16dp" />
 
         <RadioGroup
@@ -67,28 +87,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="45 kg beras" />
+                android:hint="45 kg beras" />
 
             <RadioButton
                 android:id="@+id/jawaban2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3,5 kg beras" />
+                android:hint="3,5 kg beras" />
 
             <RadioButton
                 android:id="@+id/jawaban3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="12 kg beras" />
+                android:hint="12 kg beras" />
 
             <RadioButton
                 android:id="@+id/jawaban4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="27 kg beras" />
+                android:hint="27 kg beras" />
         </RadioGroup>
 
         <!-- Button NEXT dan PREV -->

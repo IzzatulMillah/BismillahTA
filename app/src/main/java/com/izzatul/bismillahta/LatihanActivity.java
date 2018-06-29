@@ -27,14 +27,15 @@ import java.util.Random;
 
 public class LatihanActivity extends AppCompatActivity implements View.OnClickListener{
     private int idLatihan;
-    private int urutanSoal;
+    private int nomorSoal = 1, jumSoal = 10;
     private int i = 1;
     private int skor;
+    ArrayList<Integer> idSoal;
 
     private static final String TAG = LatihanActivity.class.getName();
     private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
 
-    private TextView noUrutSoal, jumlahSoal, textSoal, btnNext, btnPrev;
+    private TextView textUrutanSoal, jumlahSoal, textSoal, btnNext, btnPrev, textSkor;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
     private String jawabanBenar;
 
@@ -47,6 +48,8 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
 
         getElements();
 
+        idSoal = new ArrayList<>();
+
         getKuis();
 
         btnPrev.setOnClickListener(this);
@@ -54,8 +57,8 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void getKuis(){
-        ArrayList<Integer> idSoal = new ArrayList<>();
         Log.d("ayam","jalan");
+        textUrutanSoal.setText(String.valueOf(nomorSoal));
         do{
             idLatihan = getRandomNumber();
             Log.d("ayam",String.valueOf(idLatihan));
@@ -63,6 +66,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         idSoal.add(idLatihan);
 
         getSoal(idLatihan);
+        nomorSoal++;
     }
 
     void setUpToolbar(){
@@ -73,7 +77,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     void getElements(){
-        noUrutSoal = findViewById(R.id.tv_urutan_soal);
+        textUrutanSoal = findViewById(R.id.tv_urutan_soal);
         textSoal = findViewById(R.id.tv_soal);
         jawaban1 = findViewById(R.id.jawaban1);
         jawaban2 = findViewById(R.id.jawaban2);
@@ -81,6 +85,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         jawaban4 = findViewById(R.id.jawaban4);
         btnPrev = findViewById(R.id.btn_prev);
         btnNext = findViewById(R.id.btn_next);
+        textSkor = findViewById(R.id.tv_skor);
     }
 
     // tombol click back ke home atau activity sebelumnya
@@ -166,44 +171,44 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         if (jawaban1.isChecked()){
             if (jawaban1.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
         else if (jawaban2.isChecked()){
             if (jawaban2.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
         else if (jawaban3.isChecked()){
             if (jawaban3.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
         else if (jawaban4.isChecked()){
             if (jawaban4.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
             }
             else {
-                noUrutSoal.setText(""+skor);
+                textSkor.setText(""+skor);
                 Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
             }
         }
