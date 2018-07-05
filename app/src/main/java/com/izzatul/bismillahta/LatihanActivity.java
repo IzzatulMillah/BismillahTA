@@ -223,7 +223,6 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_next :
                 cekJawaban();
                 getKuis();
-//                Toast.makeText(this, "TOMBOL NEXT CLICKED", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

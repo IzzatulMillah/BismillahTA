@@ -130,7 +130,7 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     startActivity(intent);
                     break;
                 case 5 :
-                    intent = new Intent(this, HitungZakatPertanianActivity.class);
+                    intent = new Intent(this, HitungZakatHewanTernakActivity.class);
                     startActivity(intent);
                     break;
             }

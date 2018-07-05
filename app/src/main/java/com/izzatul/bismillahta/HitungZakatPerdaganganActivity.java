@@ -15,9 +15,9 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class HitungZakatPerdaganganActivity extends AppCompatActivity implements View.OnClickListener{
+public class HitungZakatPerdaganganActivity extends AppActivity{
 
-    @NotEmpty
+    @NotEmpty(message = "Mohon diisi dahulu")
     EditText editModal, editKeuntungan, editPiutang, editHutang, editKerugian, editHaul, editEmas;
 
     TextView bHitung, bUlang, textHasil;
@@ -29,7 +29,6 @@ public class HitungZakatPerdaganganActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_hitung_zakat_perdagangan);
 
         setToolbar();
-
         setTheView();
     }
 
