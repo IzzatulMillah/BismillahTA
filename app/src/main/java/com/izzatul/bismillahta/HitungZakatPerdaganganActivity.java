@@ -1,6 +1,5 @@
 package com.izzatul.bismillahta;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -59,36 +58,41 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
         btResetPiutang = findViewById(R.id.btnResetPiutang);
         btResetHutang = findViewById(R.id.btnResetHutang);
         btResetKerugian = findViewById(R.id.btnResetKerugian);
+
+        bHitung.setOnClickListener(this);
+        bUlang.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
-        switch (view.getId()){
-            case R.id.btnResetHaul:
-                editHaul.setText("");
-                break;
-            case R.id.btnResetModal :
-                editModal.setText("");
-                break;
-            case R.id.btnResetKeuntungan :
-                editKeuntungan.setText("");
-                break;
-            case R.id.btnResetPiutang :
-                editPiutang.setText("");
-                break;
-            case R.id.btnResetHutang :
-                editHutang.setText("");
-                break;
-            case R.id.btnResetKerugian :
-                editKerugian.setText("");
-                break;
-            case R.id.btnHitung :
-                getHasilHitung();
-                break;
-            case R.id.btnUlangi:
-                setAllNull();
-                break;
+        super.onClick(view);
+        if (validated) {
+            switch (view.getId()){
+                case R.id.btnResetHaul:
+                    editHaul.setText("");
+                    break;
+                case R.id.btnResetModal :
+                    editModal.setText("");
+                    break;
+                case R.id.btnResetKeuntungan :
+                    editKeuntungan.setText("");
+                    break;
+                case R.id.btnResetPiutang :
+                    editPiutang.setText("");
+                    break;
+                case R.id.btnResetHutang :
+                    editHutang.setText("");
+                    break;
+                case R.id.btnResetKerugian :
+                    editKerugian.setText("");
+                    break;
+                case R.id.btnHitung :
+                    getHasilHitung();
+                    break;
+                case R.id.btnUlangi:
+                    setAllNull();
+                    break;
+            }
         }
     }
 

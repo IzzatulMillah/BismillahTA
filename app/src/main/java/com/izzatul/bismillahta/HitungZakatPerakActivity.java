@@ -1,6 +1,5 @@
 package com.izzatul.bismillahta;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -64,26 +63,28 @@ public class HitungZakatPerakActivity extends AppActivity{
 
     @Override
     public void onClick(View view) {
-
-        switch (view.getId()){
-            case R.id.btnResetLamaKepemilikan :
-                editLamaKepemilikan.setText("");
-                break;
-            case R.id.btnResetTotalPerak :
-                editJumlahTotal.setText("");
-                break;
-            case R.id.btnResetTotalDipakai :
-                editJumlahDipakai.setText("");
-                break;
-            case R.id.btnHargaPerak :
-                editHargaPerak.setText("");
-                break;
-            case R.id.btnHitung :
-                hitung();
-                break;
-            case R.id.btnUlangi :
-                setNull();
-                break;
+        super.onClick(view);
+        if (validated) {
+            switch (view.getId()){
+                case R.id.btnResetLamaKepemilikan :
+                    editLamaKepemilikan.setText("");
+                    break;
+                case R.id.btnResetTotalPerak :
+                    editJumlahTotal.setText("");
+                    break;
+                case R.id.btnResetTotalDipakai :
+                    editJumlahDipakai.setText("");
+                    break;
+                case R.id.btnHargaPerak :
+                    editHargaPerak.setText("");
+                    break;
+                case R.id.btnHitung :
+                    hitung();
+                    break;
+                case R.id.btnUlangi :
+                    setNull();
+                    break;
+            }
         }
     }
 

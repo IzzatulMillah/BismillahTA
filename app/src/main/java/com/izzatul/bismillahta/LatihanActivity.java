@@ -1,6 +1,7 @@
 package com.izzatul.bismillahta;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -35,9 +36,9 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
     private static final String TAG = LatihanActivity.class.getName();
     private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
 
-    private TextView textUrutanSoal, jumlahSoal, textSoal, btnNext, btnPrev, textSkor;
+    private TextView textUrutanSoal, textSoal, btnNext, textSkor, btnCekJwbn, textPembahasan;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
-    private String jawabanBenar;
+    private String jawabanBenar, pembahasanSoal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +46,10 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_latihan);
 
         setUpToolbar();
-
         getElements();
 
         idSoal = new ArrayList<>();
-
         getKuis();
-
-        btnPrev.setOnClickListener(this);
-        btnNext.setOnClickListener(this);
     }
 
     public void getKuis(){
@@ -64,9 +60,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             Log.d("ayam",String.valueOf(idLatihan));
         } while (idSoal.contains(idLatihan));
         idSoal.add(idLatihan);
-
         getSoal(idLatihan);
-        nomorSoal++;
     }
 
     void setUpToolbar(){
@@ -83,9 +77,27 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         jawaban2 = findViewById(R.id.jawaban2);
         jawaban3 = findViewById(R.id.jawaban3);
         jawaban4 = findViewById(R.id.jawaban4);
-        btnPrev = findViewById(R.id.btn_prev);
         btnNext = findViewById(R.id.btn_next);
         textSkor = findViewById(R.id.tv_skor);
+        btnCekJwbn = findViewById(R.id.btn_cek_jawaban);
+        textPembahasan = findViewById(R.id.tv_pembahasan);
+
+        btnNext.setOnClickListener(this);
+        btnCekJwbn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_cek_jawaban :
+                cekJawaban();
+                fungsiCek();
+                break;
+            case R.id.btn_next :
+                getKuis();
+                fungsiNext();
+                break;
+        }
     }
 
     // tombol click back ke home atau activity sebelumnya
@@ -105,7 +117,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
     private int getRandomNumber(){
         int num;
         int min = 1;
-        int max = 10;
+        int max = 20;
 
         num = new Random().nextInt((max - min) + 1) + min;
         return num;
@@ -133,6 +145,7 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                     String jawab3 = data.getString("jawaban_3");
                     String jawab4 = data.getString("jawaban_4");
                     String jawaban_benar = data.getString("jawaban_benar");
+                    String pembahasan = data.getString("pembahasan");
 
                     textSoal.setText(soal);
                     jawaban1.setText(jawab1);
@@ -141,8 +154,8 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
                     jawaban4.setText(jawab4);
 
                     jawabanBenar = jawaban_benar;
-
-//                    Toast.makeText(LatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
+                    pembahasanSoal = pembahasan;
+                    Log.d("hasil", pembahasan);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),
@@ -172,58 +185,80 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             if (jawaban1.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+                jawaban1.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+                jawaban1.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
         else if (jawaban2.isChecked()){
             if (jawaban2.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+                jawaban2.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+                jawaban2.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
         else if (jawaban3.isChecked()){
             if (jawaban3.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+                jawaban3.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+                jawaban3.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
         else if (jawaban4.isChecked()){
             if (jawaban4.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
+                jawaban4.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
+                jawaban4.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_prev :
-                Toast.makeText(this, "TOMBOL PREV CLICKED", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_next :
-                cekJawaban();
-                getKuis();
-                break;
-        }
+    public void fungsiCek(){
+        btnCekJwbn.setVisibility(View.GONE);
+        btnNext.setVisibility(View.VISIBLE);
+        textPembahasan.setText(pembahasanSoal);
     }
+
+    public void fungsiNext(){
+        i++;
+        textUrutanSoal.setText(String.valueOf(i));
+        if (i > jumSoal){
+            Intent intent = new Intent(LatihanActivity.this, ResultActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("skorAkhir", skor);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+        btnCekJwbn.setVisibility(View.VISIBLE);
+        btnNext.setVisibility(View.GONE);
+
+        textPembahasan.setText("");
+        jawaban1.setTextColor(getResources().getColor(R.color.colorBlack));
+        jawaban2.setTextColor(getResources().getColor(R.color.colorBlack));
+        jawaban3.setTextColor(getResources().getColor(R.color.colorBlack));
+        jawaban4.setTextColor(getResources().getColor(R.color.colorBlack));
+    }
+
 }

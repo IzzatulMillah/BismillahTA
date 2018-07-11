@@ -25,4 +25,8 @@
     <string name="unta">Unta</string>
     <string name="sapi_kerbau">Sapi/Kerbau</string>
     <string name="kambing">Kambing</string>
+    <string name="selanjutnya">SELANJUTNYA</string>
+    <string name="cek_jawaban">CEK JAWABAN</string>
+    <string name="skor_akhir">SKOR AKHIR</string>
+    <string name="_setNol">0</string>
 </resources>

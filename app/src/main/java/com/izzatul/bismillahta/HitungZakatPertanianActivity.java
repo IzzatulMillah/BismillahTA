@@ -74,19 +74,22 @@ public class HitungZakatPertanianActivity extends AppActivity{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnResetJenis :
-                editJenis.setText("");
-                break;
-            case R.id.btnResetBerat :
-                editBerat.setText("");
-                break;
-            case R.id.btnHitung :
-                hitung();
-                break;
-            case R.id.btnUlangi :
-                setNull();
-                break;
+        super.onClick(view);
+        if (validated) {
+            switch (view.getId()){
+                case R.id.btnResetJenis :
+                    editJenis.setText("");
+                    break;
+                case R.id.btnResetBerat :
+                    editBerat.setText("");
+                    break;
+                case R.id.btnHitung :
+                    hitung();
+                    break;
+                case R.id.btnUlangi :
+                    setNull();
+                    break;
+            }
         }
     }
 
@@ -107,7 +110,6 @@ public class HitungZakatPertanianActivity extends AppActivity{
             if (rbManual.isChecked()){
                 zakat = beratTanaman * PERSEN_ZAKAT_MANUAL;
             } else {
-                selectedMethod = rbHujan.getText().toString();
                 zakat = beratTanaman * PERSEN_ZAKAT_HUJAN;
             }
             textHasil.setText("Zakat yang wajib dikeluarkan adalah " + zakat + " kg " + jenisTanaman);

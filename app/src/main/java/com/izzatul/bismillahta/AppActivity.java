@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -50,15 +51,20 @@ public class AppActivity extends AppCompatActivity implements Validator.Validati
             View view = error.getView();
             String message = error.getCollatedErrorMessage(this);
 
-
             // Display error messages
             if (view instanceof Spinner) {
                 Spinner sp = (Spinner) view;
-                view = ((LinearLayout) sp.getSelectedView()).getChildAt(0);        // we are actually interested in the text view spinner has
+                view = ((LinearLayout) sp.getSelectedView()).getChildAt(0);
+                // we are actually interested in the text view spinner has
             }
 
             if (view instanceof TextView) {
                 TextView et = (TextView) view;
+                et.setError(message);
+            }
+
+            if (view instanceof EditText){
+                EditText et = (EditText) view;
                 et.setError(message);
             }
         }

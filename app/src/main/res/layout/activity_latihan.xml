@@ -28,124 +28,150 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Soal ke " />
+                android:text="Soal ke "
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_urutan_soal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1" />
+                android:text="1"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" dari " />
+                android:text=" dari "
+                android:textSize="16sp" />
 
             <TextView
-            android:id="@+id/tv_jumlah_soal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10" />
-
+                android:id="@+id/tv_jumlah_soal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="right">
+            android:gravity="end">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SKOR : "
-                android:textSize="18sp"/>
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tv_skor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="0"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_soal"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"
-            android:textSize="16dp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <RadioButton
-                android:id="@+id/jawaban1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="45 kg beras" />
-
-            <RadioButton
-                android:id="@+id/jawaban2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="3,5 kg beras" />
-
-            <RadioButton
-                android:id="@+id/jawaban3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="12 kg beras" />
-
-            <RadioButton
-                android:id="@+id/jawaban4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="27 kg beras" />
-        </RadioGroup>
-
-        <!-- Button NEXT dan PREV -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginTop="@dimen/activity_vertical_margin">
-
-            <TextView
-                android:id="@+id/btn_prev"
+            android:layout_height="wrap_content">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:gravity="center"
-                android:text="PREV"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/btn_next"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:text="NEXT"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@android:color/background_light"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_soal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Berapakah zakat fitrah yang dibayarkan jika jumlah anggota keluarga ada 9 orang?"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                    <RadioButton
+                        android:id="@+id/jawaban1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="45 kg beras"
+                        android:textColor="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/jawaban2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="3,5 kg beras"
+                        android:textColor="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/jawaban3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="12 kg beras"
+                        android:textColor="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/jawaban4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="27 kg beras"
+                        android:textColor="@android:color/black" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_pembahasan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Jawaban: a. Mualaf. Orang yang baru masuk Islam dan imannya masih lemah dinamakan mualaf. Mualaf berbeda dengan mukalaf. Mukalaf adalah orang yang sudah dikenakan kewajiban menjalankan syari’at Islam atau orang yang sudah dibebani hukum Islam."
+                    android:textColor="@android:color/black" />
+
+                <!-- Button NEXT dan PREV -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                    <TextView
+                        android:id="@+id/btn_next"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="@string/selanjutnya"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/btn_cek_jawaban"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="@string/cek_jawaban"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 

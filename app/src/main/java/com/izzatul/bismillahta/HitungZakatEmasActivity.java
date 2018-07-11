@@ -65,25 +65,28 @@ public class HitungZakatEmasActivity extends AppActivity{
     // atau http://www.sami-an.com/islam-dan-dakwah/perhitungan-zakat-emas.html
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnResetLamaKepemilikan :
-                editLamaKepemilikan.setText("");
-                break;
-            case R.id.btnResetTotalEmas :
-                editJumlahTotal.setText("");
-                break;
-            case R.id.btnResetTotalDipakai :
-                editJumlahDipakai.setText("");
-                break;
-            case R.id.btnHargaEmas :
-                editHargaEmas.setText("");
-                break;
-            case R.id.btnHitung :
-                hitung();
-                break;
-            case R.id.btnUlangi :
-                setNull();
-                break;
+        super.onClick(view);
+        if (validated){
+            switch (view.getId()){
+                case R.id.btnResetLamaKepemilikan :
+                    editLamaKepemilikan.setText("");
+                    break;
+                case R.id.btnResetTotalEmas :
+                    editJumlahTotal.setText("");
+                    break;
+                case R.id.btnResetTotalDipakai :
+                    editJumlahDipakai.setText("");
+                    break;
+                case R.id.btnHargaEmas :
+                    editHargaEmas.setText("");
+                    break;
+                case R.id.btnHitung :
+                    hitung();
+                    break;
+                case R.id.btnUlangi :
+                    setNull();
+                    break;
+            }
         }
     }
 

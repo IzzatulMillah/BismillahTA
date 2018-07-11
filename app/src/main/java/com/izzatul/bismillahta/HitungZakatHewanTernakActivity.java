@@ -53,22 +53,25 @@ public class HitungZakatHewanTernakActivity extends AppActivity{
 
     @Override
     public void onClick(View view) {
-        jumHewan = Integer.parseInt(jumlahHewan.getText().toString());
-        switch (view.getId()){
-            case R.id.btn_hitung:
-                if (rbSapi.isChecked()){
-                    hitungSapi(jumHewan);
-                }
-                else if (rbKambing.isChecked()){
-                    hitungKambing(jumHewan);
-                }
-                else if (rbUnta.isChecked()){
-                    hitungUnta(jumHewan);
-                }
-                break;
-            case R.id.btn_ulang :
-                setNull();
-                break;
+        super.onClick(view);
+        if (validated) {
+            jumHewan = Integer.parseInt(jumlahHewan.getText().toString());
+            switch (view.getId()){
+                case R.id.btn_hitung:
+                    if (rbSapi.isChecked()){
+                        hitungSapi(jumHewan);
+                    }
+                    else if (rbKambing.isChecked()){
+                        hitungKambing(jumHewan);
+                    }
+                    else if (rbUnta.isChecked()){
+                        hitungUnta(jumHewan);
+                    }
+                    break;
+                case R.id.btn_ulang :
+                    setNull();
+                    break;
+            }
         }
     }
 
@@ -148,6 +151,7 @@ public class HitungZakatHewanTernakActivity extends AppActivity{
         }
 
     }
+
     public void hitungKambing(int jumKambing){
         if (jumKambing <= 4){
             textHasil.setText("Tidak wajib zakat. ");
@@ -168,6 +172,7 @@ public class HitungZakatHewanTernakActivity extends AppActivity{
             textHasil.setText("Zakat yang dibayarkan bertambah 1 ekor tiap kelipatan 10");
         }
     }
+
     public void hitungSapi(int jumSapi){
         if (jumSapi<30){
             textHasil.setText("Tidak wajib zakat");
