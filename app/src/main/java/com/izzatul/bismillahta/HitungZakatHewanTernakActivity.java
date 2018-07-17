@@ -69,6 +69,7 @@ public class HitungZakatHewanTernakActivity extends AppActivity{
                     }
                     break;
                 case R.id.btn_ulang :
+                    validated = false;
                     setNull();
                     break;
             }
@@ -77,7 +78,7 @@ public class HitungZakatHewanTernakActivity extends AppActivity{
 
     public void hitungUnta(int jumUnta){
         if (jumUnta<5){
-            textHasil.setText("Tidak wajib zakat karena belum mencapai nishab");
+            textHasil.setText(R.string.tidak_wajib_zakat);
         }
         else if (jumUnta>=5 && jumUnta<=9){
             textHasil.setText("Jumlah unta : "

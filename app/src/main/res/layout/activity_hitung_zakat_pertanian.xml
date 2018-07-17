@@ -40,37 +40,42 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Jenis Tanaman -->
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:text="@string/jenis_tanaman"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="18sp"
+                    android:padding="5dp"/>
+
+                <!-- Jenis Tanaman -->
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:weightSum="10">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="0dp"
+                    <RadioButton
+                        android:id="@+id/rb_gandum"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="9">
-
-                        <android.support.design.widget.TextInputEditText
-                            android:id="@+id/etJenis"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="Jenis Tanaman"
-                            android:inputType="text" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <ImageButton
-                        android:id="@+id/btnResetJenis"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_dialog" />
-                </LinearLayout>
+                        android:text="@string/gandum" />
+
+                    <RadioButton
+                        android:id="@+id/rb_beras"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/beras" />
+
+                    <RadioButton
+                        android:id="@+id/rb_jagung"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/jagung" />
+                </RadioGroup>
 
                 <!-- Berat Tanaman -->
 
@@ -90,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/etBerat"
-                            android:hint="Berat tanaman (kg)"
+                            android:hint="@string/berat_tanaman_kg"
                             android:inputType="number"/>
                     </android.support.design.widget.TextInputLayout>
 
@@ -108,7 +113,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Proses Pengairan"
+                    android:text="@string/proses_pengairan"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:textSize="18sp" />
 
@@ -128,16 +133,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="true"
-                            android:text="Disiram manual" />
+                            android:text="@string/disiram_manual" />
 
                         <RadioButton
                             android:id="@+id/rbHujan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="false"
-                            android:text="Disiram hujan" />
+                            android:text="@string/disiram_hujan" />
 
                     </RadioGroup>
                 </LinearLayout>

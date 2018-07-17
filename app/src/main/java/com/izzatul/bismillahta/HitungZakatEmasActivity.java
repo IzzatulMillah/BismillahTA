@@ -84,6 +84,7 @@ public class HitungZakatEmasActivity extends AppActivity{
                     hitung();
                     break;
                 case R.id.btnUlangi :
+                    validated = false;
                     setNull();
                     break;
             }
@@ -109,7 +110,7 @@ public class HitungZakatEmasActivity extends AppActivity{
             textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(rupiah));
         }
         else
-            textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
+            textHasil.setText(R.string.tidak_wajib_zakat);
     }
 
     public void setNull(){
@@ -117,6 +118,7 @@ public class HitungZakatEmasActivity extends AppActivity{
         editJumlahTotal.setText("");
         editJumlahDipakai.setText("");
         editHargaEmas.setText("");
+        textHasil.setText("");
     }
 
     // tombol click back ke home atau activity sebelumnya

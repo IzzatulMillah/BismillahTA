@@ -17,10 +17,10 @@ import java.util.Locale;
 public class HitungZakatPerdaganganActivity extends AppActivity{
 
     @NotEmpty(message = "Mohon diisi dahulu")
-    EditText editModal, editKeuntungan, editPiutang, editHutang, editKerugian, editHaul, editEmas;
+    EditText editModal, editHaul, editEmas;
 
     TextView bHitung, bUlang, textHasil;
-    ImageButton btResetModal, btResetKeuntungan, btResetPiutang, btResetHutang, btResetKerugian, btResetHaul, btResetEmas;
+    ImageButton btResetModal, btResetHaul, btResetEmas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,6 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
         editHaul = findViewById(R.id.etHaul);
         editEmas = findViewById(R.id.etHargaEmas);
         editModal = findViewById(R.id.etModal);
-        editKeuntungan = findViewById(R.id.etKeuntungan);
-        editPiutang = findViewById(R.id.etPiutang);
-        editHutang = findViewById(R.id.etHutang);
-        editKerugian = findViewById(R.id.etKerugian);
 
         bHitung = findViewById(R.id.btnHitung);
         bUlang = findViewById(R.id.btnUlangi);
@@ -54,10 +50,6 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
         btResetHaul = findViewById(R.id.btnResetHaul);
         btResetEmas = findViewById(R.id.btnResetHargaEmas);
         btResetModal = findViewById(R.id.btnResetModal);
-        btResetKeuntungan = findViewById(R.id.btnResetKeuntungan);
-        btResetPiutang = findViewById(R.id.btnResetPiutang);
-        btResetHutang = findViewById(R.id.btnResetHutang);
-        btResetKerugian = findViewById(R.id.btnResetKerugian);
 
         bHitung.setOnClickListener(this);
         bUlang.setOnClickListener(this);
@@ -74,22 +66,11 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
                 case R.id.btnResetModal :
                     editModal.setText("");
                     break;
-                case R.id.btnResetKeuntungan :
-                    editKeuntungan.setText("");
-                    break;
-                case R.id.btnResetPiutang :
-                    editPiutang.setText("");
-                    break;
-                case R.id.btnResetHutang :
-                    editHutang.setText("");
-                    break;
-                case R.id.btnResetKerugian :
-                    editKerugian.setText("");
-                    break;
                 case R.id.btnHitung :
                     getHasilHitung();
                     break;
                 case R.id.btnUlangi:
+                    validated = false;
                     setAllNull();
                     break;
             }
@@ -101,35 +82,28 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
-        float NISAB_DAGANG = 85; // nisab perdagangan sama dengan emas, yaitu 85 gram
-        int HAUL_PERAK = 1; // haul harta dagang juga sama dengan emas
-        double PERSEN_ZAKAT = 0.025;
+        final float NISAB_DAGANG = 85; // nisab perdagangan sama dengan emas, yaitu 85 gram
+        final int HAUL_PERAK = 1; // haul harta dagang juga sama dengan emas
+        final double PERSEN_ZAKAT = 0.025;
 
-        int kepemilikan = Integer.parseInt(editHaul.getText().toString());
+        float kepemilikan = Integer.parseInt(editHaul.getText().toString());
         int hargaEmas = Integer.parseInt(editEmas.getText().toString());
         int modal = Integer.parseInt(editModal.getText().toString());
-        int keuntungan = Integer.parseInt(editKeuntungan.getText().toString());
-        int piutang = Integer.parseInt(editPiutang.getText().toString());
-        int hutang = Integer.parseInt(editHutang.getText().toString());
-        int kerugian = Integer.parseInt(editKerugian.getText().toString());
+        double nisab = modal / hargaEmas;
 
-        double total = (float) ((modal + keuntungan + piutang) - (hutang - kerugian));
-        double nisab = total / hargaEmas;
         if (kepemilikan >= HAUL_PERAK & nisab >= NISAB_DAGANG) {
-            double zakat = total * PERSEN_ZAKAT;
+            double zakat = nisab * PERSEN_ZAKAT;
             textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(zakat));
         }
         else
-            textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
+            textHasil.setText(R.string.tidak_wajib_zakat);
     }
 
     public void setAllNull(){
         editHaul.setText("");
+        editEmas.setText("");
         editModal.setText("");
-        editKeuntungan.setText("");
-        editPiutang.setText("");
-        editHutang.setText("");
-        editKerugian.setText("");
+        textHasil.setText("");
     }
 
     // tombol click back ke home atau activity sebelumnya

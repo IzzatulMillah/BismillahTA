@@ -134,7 +134,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Jawaban: a. Mualaf. Orang yang baru masuk Islam dan imannya masih lemah dinamakan mualaf. Mualaf berbeda dengan mukalaf. Mukalaf adalah orang yang sudah dikenakan kewajiban menjalankan syari’at Islam atau orang yang sudah dibebani hukum Islam."
                     android:textColor="@android:color/black" />
 
                 <!-- Button NEXT dan PREV -->

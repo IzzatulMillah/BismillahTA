@@ -6,7 +6,6 @@
     <string name="tentang">Tentang Aplikasi</string>
     <string name="zakat_fitrah">Zakat Fitrah</string>
     <string name="zakat_maal">Zakat Maal</string>
-    <string name="ulang">ULANG</string>
     <string name="hitung">HITUNG</string>
     <string name="zakat_pertanian">Zakat Pertanian</string>
     <string name="zakat_perdagangan">Zakat Perdagangan</string>
@@ -29,4 +28,15 @@
     <string name="cek_jawaban">CEK JAWABAN</string>
     <string name="skor_akhir">SKOR AKHIR</string>
     <string name="_setNol">0</string>
+    <string name="ulang">ULANG</string>
+    <string name="lihat_tabel">Lihat Tabel</string>
+    <string name="tidak_wajib_zakat">Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul</string>
+    <string name="jenis_tanaman">Jenis Tanaman</string>
+    <string name="gandum">Gandum</string>
+    <string name="beras">Beras</string>
+    <string name="jagung">Jagung</string>
+    <string name="berat_tanaman_kg">Berat tanaman (kg)</string>
+    <string name="proses_pengairan">Proses Pengairan</string>
+    <string name="disiram_manual">Disiram manual</string>
+    <string name="disiram_hujan">Disiram hujan</string>
 </resources>

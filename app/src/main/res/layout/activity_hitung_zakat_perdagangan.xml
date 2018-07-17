@@ -62,17 +62,6 @@
                             android:inputType="number"/>
                     </android.support.design.widget.TextInputLayout>
 
-                    <!--<EditText-->
-                    <!--android:id="@+id/etHaul"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Lama Kepemilikan (tahun)"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
                     <ImageButton
                         android:id="@+id/btnResetHaul"
                         android:layout_width="0dp"
@@ -104,17 +93,6 @@
                             android:inputType="number"/>
                     </android.support.design.widget.TextInputLayout>
 
-                    <!--<EditText-->
-                    <!--android:id="@+id/etHargaEmas"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Harga Emas (gram)"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
                     <ImageButton
                         android:id="@+id/btnResetHargaEmas"
                         android:layout_width="0dp"
@@ -125,7 +103,7 @@
                         android:src="@android:drawable/btn_dialog" />
                 </LinearLayout>
 
-                <!-- Modal -->
+                <!-- Modal yang Diputar -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -146,17 +124,6 @@
                             android:inputType="number"/>
                     </android.support.design.widget.TextInputLayout>
 
-                    <!--<EditText-->
-                    <!--android:id="@+id/etModal"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Modal yang Diputar"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
                     <ImageButton
                         android:id="@+id/btnResetModal"
                         android:layout_width="0dp"
@@ -165,206 +132,6 @@
                         android:layout_marginEnd="0dp"
                         android:layout_weight="1"
                         android:src="@android:drawable/btn_dialog" />
-                </LinearLayout>
-
-                <!-- Keuntungan -->
-                <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Keuntungan"-->
-                <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
-                <!--android:textSize="18sp" />-->
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="9">
-
-                        <android.support.design.widget.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/etKeuntungan"
-                            android:hint="Keuntungan"
-                            android:inputType="number"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                    <!--<EditText-->
-                    <!--android:id="@+id/etKeuntungan"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Keuntungan"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
-                    <ImageButton
-                        android:id="@+id/btnResetKeuntungan"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:layout_weight="1"
-                        android:src="@android:drawable/btn_dialog" />
-
-                </LinearLayout>
-
-                <!-- Piutang -->
-                <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Piutang yang dapat Dicairkan"-->
-                <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
-                <!--android:textSize="18sp" />-->
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="9">
-
-                        <android.support.design.widget.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/etPiutang"
-                            android:hint="Piutang"
-                            android:inputType="number"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                    <!--<EditText-->
-                    <!--android:id="@+id/etPiutang"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Piutang"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
-                    <ImageButton
-                        android:id="@+id/btnResetPiutang"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:layout_weight="1"
-                        android:src="@android:drawable/btn_dialog" />
-
-                </LinearLayout>
-
-                <!-- Hutang -->
-                <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Hutang"-->
-                <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
-                <!--android:textSize="18sp" />-->
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="9">
-
-                        <android.support.design.widget.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/etHutang"
-                            android:hint="Hutang"
-                            android:inputType="number"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                    <!--<EditText-->
-                    <!--android:id="@+id/etHutang"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Hutang"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
-                    <ImageButton
-                        android:id="@+id/btnResetHutang"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:layout_weight="1"
-                        android:src="@android:drawable/btn_dialog" />
-
-                </LinearLayout>
-
-                <!-- Kerugian -->
-                <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Kerugian"-->
-                <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
-                <!--android:textSize="18sp" />-->
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="9">
-
-                        <android.support.design.widget.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/etKerugian"
-                            android:hint="Keuntungan"
-                            android:inputType="number"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                    <!--<EditText-->
-                    <!--android:id="@+id/etKerugian"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="0dp"-->
-                    <!--android:layout_weight="2"-->
-                    <!--android:hint="Keuntungan"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textColorLink="@color/colorAccent"-->
-                    <!--android:textSize="18sp" />-->
-
-                    <ImageButton
-                        android:id="@+id/btnResetKerugian"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:layout_weight="1"
-                        android:src="@android:drawable/btn_dialog" />
-
                 </LinearLayout>
 
                 <!-- Hasil perhitungan -->
