@@ -100,20 +100,6 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    // tombol click back ke home atau activity sebelumnya
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int idItem = item.getItemId();
-        switch (idItem) {
-            case android.R.id.home :
-                finish();
-                break;
-            default:
-                Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
-        }
-        return true;
-    }
-
     private int getRandomNumber(){
         int num;
         int min = 1;
@@ -185,12 +171,10 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             if (jawaban1.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
                 jawaban1.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
                 jawaban1.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
@@ -198,12 +182,10 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             if (jawaban2.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
                 jawaban2.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
                 jawaban2.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
@@ -211,12 +193,10 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             if (jawaban3.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
                 jawaban3.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
                 jawaban3.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
@@ -224,12 +204,10 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
             if (jawaban4.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Benar", Toast.LENGTH_SHORT).show();
                 jawaban4.setTextColor(getResources().getColor(R.color.trueColor));
             }
             else {
                 textSkor.setText(""+skor);
-//                Toast.makeText(this, "Jawaban Salah", Toast.LENGTH_SHORT).show();
                 jawaban4.setTextColor(getResources().getColor(R.color.wrongColor));
             }
         }
@@ -260,5 +238,20 @@ public class LatihanActivity extends AppCompatActivity implements View.OnClickLi
         jawaban3.setTextColor(getResources().getColor(R.color.colorBlack));
         jawaban4.setTextColor(getResources().getColor(R.color.colorBlack));
     }
+
+    // tombol click back ke home atau activity sebelumnya
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int idItem = item.getItemId();
+        switch (idItem) {
+            case android.R.id.home :
+                finish();
+                break;
+            default:
+                Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+
 
 }

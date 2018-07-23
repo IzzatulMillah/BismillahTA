@@ -58,13 +58,24 @@
             tools:layout_width="wrap_content" />
 
         <Button
-            android:id="@+id/btnTentangAplikasi"
+            android:id="@+id/btnProfilUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:background="@color/colorPrimary"
-            android:text="@string/tentang"
+            android:text="@string/profil_user"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/log_out"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
     </LinearLayout>

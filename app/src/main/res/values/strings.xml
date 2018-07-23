@@ -39,4 +39,15 @@
     <string name="proses_pengairan">Proses Pengairan</string>
     <string name="disiram_manual">Disiram manual</string>
     <string name="disiram_hujan">Disiram hujan</string>
+    <string name="create_account"><font color="#00ff00">text</font></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="register">Registrasi</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="login_gagal">Login Gagal. Username dan Password salah.</string>
+    <string name="login_sukses">Login Sukses</string>
+    <string name="profil_user">Profil User</string>
+    <string name="log_out">LOG OUT</string>
 </resources>

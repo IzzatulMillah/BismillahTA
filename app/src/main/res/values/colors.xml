@@ -7,4 +7,5 @@
     <color name="wrongColor">#f00</color>
     <color name="trueColor">#0b9c03</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBackground">#f9f7f7</color>
 </resources>

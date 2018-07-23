@@ -27,9 +27,6 @@ import org.json.JSONObject;
 public class MateriActivity extends AppCompatActivity implements View.OnClickListener{
 
     private int bundleMateri;
-    Bundle fitrah, emas, perak, dagang, tani, ternak;
-    Intent intent;
-    Context context;
 
     private static final String TAG = MainActivity.class.getName();
     private String url = "http://millah.cyber1011.com/web/services/get-data/";
@@ -104,23 +101,30 @@ public class MateriActivity extends AppCompatActivity implements View.OnClickLis
                     String besar = data.getString("besar_zakat");
                     String contoh = data.getString("contoh_perhitungan");
 
-                    if (idZakat==6){
-                        showTabel();
+                    judulMateri.setText(judul);
+                    deskripsi.setText(definisi);
+                    nishabZakat.setText(nishab);
+                    waktuZakat.setText(waktu);
+                    besarZakat.setText(besar);
+                    contohZakat.setText(contoh);
 
-                        judulMateri.setText(judul);
-                        deskripsi.setText(definisi);
-                        nishabZakat.setText(nishab);
-                        waktuZakat.setText(waktu);
-                        besarZakat.setText(besar);
-                        contohZakat.setText(contoh);
-                    } else {
-                        judulMateri.setText(judul);
-                        deskripsi.setText(definisi);
-                        nishabZakat.setText(nishab);
-                        waktuZakat.setText(waktu);
-                        besarZakat.setText(besar);
-                        contohZakat.setText(contoh);
-                    }
+//                    if (idZakat==6){
+//                        showTabel();
+//
+//                        judulMateri.setText(judul);
+//                        deskripsi.setText(definisi);
+//                        nishabZakat.setText(nishab);
+//                        waktuZakat.setText(waktu);
+//                        besarZakat.setText(besar);
+//                        contohZakat.setText(contoh);
+//                    } else {
+//                        judulMateri.setText(judul);
+//                        deskripsi.setText(definisi);
+//                        nishabZakat.setText(nishab);
+//                        waktuZakat.setText(waktu);
+//                        besarZakat.setText(besar);
+//                        contohZakat.setText(contoh);
+//                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();

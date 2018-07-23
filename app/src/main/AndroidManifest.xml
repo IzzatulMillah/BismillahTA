@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.izzatul.bismillahta">
 
-    <uses-permission android:name="android.permission.INTERNET">
-        INTERNET
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -30,7 +28,10 @@
         <activity android:name=".HitungZakatPerdaganganActivity" />
         <activity android:name=".HitungZakatPertanianActivity" />
         <activity android:name=".HitungZakatHewanTernakActivity" />
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".ProfilUserActivity"></activity>
     </application>
 
 </manifest>
