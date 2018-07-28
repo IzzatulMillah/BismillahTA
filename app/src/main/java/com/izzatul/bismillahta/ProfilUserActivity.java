@@ -26,7 +26,7 @@ import java.util.List;
 
 public class ProfilUserActivity extends AppCompatActivity {
     private RecyclerView mList;
-    private String url = "http://192.168.43.20/basic/web/services/get-skor/";
+    private String url = "http://millah.cyber1011.com/web/services/get-skor/";
     private String idUser;
 
     private LinearLayoutManager linearLayoutManager;

@@ -23,14 +23,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = LoginActivity.class.getName();;
+    private static final String TAG = LoginActivity.class.getName();
     private EditText etUsername, etPassword;
     private Button btnLogin;
     private String username, password;
     private TextView textRegis;
     SessionManagement session;
 
-    private String url = "http://192.168.43.20/basic/web/services/login/";
+    private String url = "http://millah.cyber1011.com/web/services/login/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

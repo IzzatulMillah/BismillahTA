@@ -28,7 +28,7 @@ public class ResultActivity extends AppCompatActivity {
     private String namaUser, idUser;
     SessionManagement session;
 
-    private String url = "http://192.168.43.20/basic/web/services/simpan-skor/";
+    private String url = "http://millah.cyber1011.com/web/services/simpan-skor/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
